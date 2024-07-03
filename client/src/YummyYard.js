@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Axios from 'axios';
+import About from './components/About'
+
 const YummyYard = () => {
 
   const [text, setText] = useState("");
@@ -7,7 +9,7 @@ const YummyYard = () => {
   const getData = async () => {
     try{
       const response = await Axios.get("http://localhost:5000/yummyYard");
-      setText(response.data);
+      setText(response.data.Response);
     } catch (err) {
       console.log(err.message);
     }
@@ -18,7 +20,9 @@ const YummyYard = () => {
   }, []);
 
   return(
-   <div>{text}</div>
+    <div>
+      <About />
+    </div>
   )
 }
 

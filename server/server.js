@@ -7,7 +7,7 @@ app.use(express.json());
 app.use(cors());
 
 app.get('/yummyYard', (req, res) => {
-    res.send("It is working..");
+    res.json({Response: "It is working.."});
 } );
 
 const PORT = 5000;
