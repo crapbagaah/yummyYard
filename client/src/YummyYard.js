@@ -1,4 +1,7 @@
 import React, {useState, useEffect} from 'react';
+import Navbar from './Components/navbar';
+import Home from './Components/home';
+import Footer from './Components/footer';
 import Axios from 'axios';
 const YummyYard = () => {
 
@@ -7,7 +10,7 @@ const YummyYard = () => {
   const getData = async () => {
     try{
       const response = await Axios.get("http://localhost:5000/yummyYard");
-      setText(response.data);
+      setText(response.data.Response);
     } catch (err) {
       console.log(err.message);
     }
@@ -18,8 +21,12 @@ const YummyYard = () => {
   }, []);
 
   return(
-   <div>{text}</div>
-  )
-}
+      <div>
+        <Navbar />
+        <Home />
+        <Footer/>
+      </div>
+    );
+  }
 
 export default YummyYard;
