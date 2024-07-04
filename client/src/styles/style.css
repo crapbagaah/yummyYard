@@ -3,6 +3,11 @@
 
 body {
   font-family: 'Poppins', sans-serif;
+  padding-top: 80px;
+}
+
+.body-layout {
+  min-height: 100vh;
 }
 
 /*---------NAVBAR--------------*/
@@ -51,7 +56,7 @@ body {
 /*--------------------HOME-----------------------*/
 
 .home {
-    padding-top: 80px; /* Adjust for the fixed navbar */
+    /*padding-top: 80px;*/ /* Adjust for the fixed navbar */
     text-align: center;
   }
   
@@ -281,6 +286,7 @@ body {
 
 /*----------------FOOTER-----------------*/
 
+
 .footer {
   background-color: #333;
   color: #fff;
@@ -367,3 +373,108 @@ body {
 .footer-contact {
   font-size: 0.9em;
 }
+
+
+/*-----------------About------------------*/
+
+
+.about {
+  padding:20px
+}
+
+.about-header {
+  background-color: rgb(242 242 242);
+}
+
+.about-image-container_1 {
+  display:flex;
+
+
+  /* margin-right:50px */
+}
+.about-image-container_2 {
+  display:flex;
+
+
+  /* margin-right:50px */
+}
+
+
+.about-image_1 {
+  width:500px;
+  height:600px;
+  border-radius:10px;
+  
+
+}
+.about-image_2 {
+width: 500px;
+border-radius:10px;
+}
+
+.about-us{
+  width:600px
+}
+
+
+
+.about_h1 {
+  font-size:2.5rem;
+  color: #cf2525;
+  margin-top:5px;
+  margin-bottom:0;
+}
+
+#about_p {
+  margin-bottom:20px;
+  font-weight:2rem;
+}
+.about_h2 {
+  font-family: "Caveat", cursive;
+  font-weight:1000;
+  font-size:2em;
+  color:#700d0d;
+  margin-bottom:0;
+}
+
+.about_p_1 {
+  font-weight:10px
+}
+
+
+
+
+.about-image-container_2{
+  display:flex;
+}
+
+.about-content {
+  /* background-color: */
+}
+.team-members {
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.team-member {
+  display: flex;
+  height: 250px;
+  justify-content:flex-start;
+  align-items:center;
+}
+
+
+
+.team-member-image {
+  height:200px;
+  margin-left:200px;
+  margin-right:50px;
+}
+
+.member-info {
+  margin-left:0px
+}
+
+
+
