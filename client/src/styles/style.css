@@ -379,7 +379,7 @@ body {
 
 
 .about {
-  padding:20px
+  padding:1rem
 }
 
 .about-header {
@@ -400,6 +400,7 @@ body {
 }
 
 
+
 .about-image_1 {
   width:500px;
   height:600px;
@@ -417,7 +418,6 @@ border-radius:10px;
 }
 
 
-
 .about_h1 {
   font-size:2.5rem;
   color: #cf2525;
@@ -429,6 +429,11 @@ border-radius:10px;
   margin-bottom:20px;
   font-weight:2rem;
 }
+
+.our-story {
+
+}
+
 .about_h2 {
   font-family: "Caveat", cursive;
   font-weight:1000;
@@ -444,13 +449,19 @@ border-radius:10px;
 
 
 
-.about-image-container_2{
-  display:flex;
-}
+
+
+
 
 .about-content {
-  /* background-color: */
+  margin-top: 10px;
+  background-color: rgb(242,  242, 242);
+  width:80vw;
+  position: static;
+  display: flex;
+  justify-content:center;
 }
+
 .team-members {
   display:flex;
   flex-direction:column;

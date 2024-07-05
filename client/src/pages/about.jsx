@@ -27,7 +27,6 @@ const About = () => {
                         </div>
                     </div>
                 </div>
-            </div>
 
                 <div className="about-content">
 
@@ -59,6 +58,7 @@ const About = () => {
                         </div>
                     </div>
                 </div>
+            </div>    
         </Layout >
     );
 
