@@ -1,8 +1,14 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React, {useState, useEffect} from 'react';
+import Header from './components/Header';
+import RecipeList from './components/RecipeList';
+import recipesData from './data/recipes';
 import Axios from 'axios';
 const YummyYard = () => {
 
   const [text, setText] = useState("");
+  const [recipes, setRecipes] = useState(recipesData);
+  const [filteredRecipes, setFilteredRecipes] = useState(recipesData);
 
   const getData = async () => {
     try{
@@ -17,8 +23,18 @@ const YummyYard = () => {
     getData();
   }, []);
 
+  const handleSearch = (searchTerm) => {
+    const filtered = recipes.filter(recipe =>
+      recipe.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredRecipes(filtered);
+  };
+
   return(
-   <div>{text}</div>
+    <div className="App">
+      <Header onSearch={handleSearch} />
+      <RecipeList recipes={filteredRecipes} />
+    </div>
   )
 }
 
