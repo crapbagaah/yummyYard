@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Layout from '../Components/layout';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faAppleAlt, faCarrot, faLemon, faPizzaSlice } from '@fortawesome/free-solid-svg-icons';
@@ -8,6 +8,7 @@ import Salad from '../Assets/Italian-Pasta-Salad.jpg';
 
 
 const Home = () => {
+
   return (
     <Layout>
       <div className="home">
@@ -72,36 +73,50 @@ const Home = () => {
           </div>
         </Carousel>
 
-
-        <div className="popular-recipes">
-          <h2 className="popular-dishes-heading">Popular Dishes</h2>
-          <div className="popular-recipe-cards-row">
-            <div className="popular-recipe-card">
-              <img src={Salad} alt="Popular Recipe 1" />
-              <div className="recipe-info">
-                <h3>Popular Recipe 1</h3>
+        <div className='popular-recipes-and-collections'>
+          <div className="popular-recipes">
+            <h2 className="popular-dishes-heading">Popular Dishes</h2>
+            <div className="popular-recipe-cards-row">
+              <div className="popular-recipe-card">
+                <img src={Salad} alt="Popular Recipe 1" />
+                <div className="recipe-info">
+                  <h3>Popular Recipe 1</h3>
+                </div>
+              </div>
+              <div className="popular-recipe-card">
+                <img src={Salad} alt="Popular Recipe 2" />
+                <div className="recipe-info">
+                  <h3>Popular Recipe 2</h3>
+                </div>
+              </div>
+              <div className="popular-recipe-card">
+                <img src={Salad} alt="Popular Recipe 3" />
+                <div className="recipe-info">
+                  <h3>Popular Recipe 3</h3>
+                </div>
+              </div>
+              <div className="popular-recipe-card">
+                <img src={Salad} alt="Popular Recipe 4" />
+                <div className="recipe-info">
+                  <h3>Popular Recipe 4</h3>
+                </div>
               </div>
             </div>
-            <div className="popular-recipe-card">
-              <img src={Salad} alt="Popular Recipe 2" />
-              <div className="recipe-info">
-                <h3>Popular Recipe 2</h3>
-              </div>
-            </div>
-            <div className="popular-recipe-card">
-              <img src={Salad} alt="Popular Recipe 3" />
-              <div className="recipe-info">
-                <h3>Popular Recipe 3</h3>
-              </div>
-            </div>
-            <div className="popular-recipe-card">
-              <img src={Salad} alt="Popular Recipe 4" />
-              <div className="recipe-info">
-                <h3>Popular Recipe 4</h3>
-              </div>
-            </div>
+            <button className="see-more-button">See More</button>
           </div>
-          <button className="see-more-button">See More</button>
+          
+          <div className="recipe-collections">
+            <h2 className="collections-heading">Recipe Collections</h2>
+            <ul className="collections-list">
+              <li>Instant Pot Recipes </li>
+              <li>Vegan Recipes </li>
+              <li>Meal Prep Recipes </li>
+              <li>Quick and Easy Recipes </li>
+              <li>Pasta Recipes </li>
+              <li>Soup Recipes </li>
+              <li>Most Popular Recipes </li>
+            </ul>
+          </div>
         </div>
       </div>
     </Layout>
