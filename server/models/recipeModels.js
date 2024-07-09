@@ -10,11 +10,11 @@ const recipeSchema = new mongoose.Schema({
         required: [true, 'Description of the Recipe is required']
     },
     ingredients: {
-        type: String,
+        type: [String],
         required: [true, 'Ingredients of the Recipe is missing']
     },
     instructions: {
-        type: String,
+        type: [String],
         required: [true, 'Instructions of the Recipe is missing']
     }
 });
