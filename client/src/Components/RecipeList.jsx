@@ -34,11 +34,16 @@ const RecipeList = ({ recipes = [] }) => {
 
   return (
     <Layout>
-      <header className="header" style={{ backgroundImage: `url(${headerBackground})` }}>
-        <div className="overlay"></div>
-        <div className='header-content'>
-          <h1>Recipes</h1>
-          <p>Explore our curated collection of recipes tailored to your needs — from dietary preferences and quick weeknight meals to meal prep solutions and beloved classics. Discover the perfect dish hassle-free, whatever your taste or schedule demands.</p>
+      <header className="header">
+        <div
+          className="header-background"
+          style={{ backgroundImage: `url(${headerBackground})` }}
+        >
+          <div className="overlay"></div>
+          <div className='header-content'>
+            <h1>Recipes</h1>
+            <p>Explore our curated collection of recipes tailored to your needs — from dietary preferences and quick weeknight meals to meal prep solutions and beloved classics. Discover the perfect dish hassle-free, whatever your taste or schedule demands.</p>
+          </div>
         </div>
       </header>
       <div className="search-container mb-2">

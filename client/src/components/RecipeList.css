@@ -1,15 +1,24 @@
 .header {
   position: relative;
-  background-size: cover;
-  background-position: center;
-  height: 500px;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #fff;
   text-align: center;
   padding: 0 15%;
-  margin-bottom: 0; /* Ensure no bottom margin */
+  margin-bottom: 0; /* Ensure no margin on top and bottom */
+}
+
+.header-background {
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* Ensure the background image spans the full width */
+  position: absolute; /* Position it absolutely to not affect header's height */
+  top: 0; /* Align it to the top */
+  /* z-index: -1; Place it behind the content */
 }
 
 .overlay {
@@ -24,12 +33,13 @@
 .header-content {
   position: relative;
   z-index: 1;
-  padding: 20px;
+  padding: 150px;
 }
 
 .search-container {
   display: flex;
   justify-content: center;
+  margin-top: 550px;
   margin-bottom: 20px;
 }
 
