@@ -47,24 +47,38 @@ const YummyYard = () => {
 
 
 
-      <Router>
+    //   <Router>
+    //   <div>
+    //     {!token ? (
+    //       <LogSignup setToken={setToken} />
+    //     ) : (
+    //       <Routes>
+    //        <Route exact path="/" element={<Home />} />
+    //        <Route path="/about" element={<About />} />
+    //        <Route path="/start_here" element={<Start_here />} />
+    //        <Route path="/log_signup" element={<LogSignup />} />
+    //       </Routes>
+    //     )}
+    //   </div>
+    // </Router>
+
+
+
+    <Router>
       <div>
-        {!token ? (
-          <LogSignup setToken={setToken} />
-        ) : (
           <Routes>
-           <Route exact path="/" element={<Home />} />
-           <Route path="/about" element={<About />} />
-           <Route path="/start_here" element={<Start_here />} />
-           <Route path="/log_signup" element={<LogSignup />} />
-          </Routes>
-        )}
-      </div>
-    </Router>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/start_here" element={<Start_here />} />
+          {/* Allow access to LogSignup page regardless of authentication */}
+          <Route path="/log_signup" element={<LogSignup setToken={setToken} />} />
+        
+        </Routes>
           
       
             
-      // </div>
+          </div>
+        </Router>
 
 
 
