@@ -430,6 +430,9 @@ body {
 /*-----------------About------------------*/
 
 
+.about {
+  width:100vw;
+}
 
 .about-header-container {
   display:flex;
@@ -455,23 +458,31 @@ body {
   justify-content:center;
 }
 .buttons {
-  width:400px;
+  width:40vw;
   display:flex;
   justify-content:space-evenly;
 
 }
 .button-style {
   border:none;
-  background-color:transparent;
-  border-bottom:1px solid #cf2525;
-  font-size:20px;
+  background-color: #cf2525;
+  border:none;
+  color:white;
+  font-size:1.4vmax;
   font-weight:5px;
-  background-color:#d7feca;
-  border-radius:20px;
-  padding:10px;
-  box-shadow: 2px 2px 2px
+  background-color:#eb5751;
+  border-radius: 5px;
+  padding: 10px 15px;
+  box-shadow: 2px 2px 2px;
+  width:25%;
+  height:95%;
+  cursor:pointer;
 
 }
+.button-style:hover {
+  background-color: #700d0d;
+}
+
 
 
 .about-image-container_1 {
@@ -479,27 +490,29 @@ body {
   display:flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  margin-top:20px
+  margin-top:20px;
 }
 
 .about-image_1 {
-  width:450px;
-  height:600px;
+  width:37%;
+  height:47%;
   border-radius:10px;
 }
 
 .about-us-info{
   width:600px;
-  font-size:1.2rem;
-  line-height:1.6;
+  font-size:1.4vmax;
+  line-height:1.8;
+  padding: 15px 50px
+
 }
 
 .about_h1 {
   font-family:"Playwrite AU TAS", cursive;
-  font-size:2.5rem;
+  font-size:3vw;
   color: #cf2525;
   margin-top:10px;
-  margin-bottom:2rem;
+  margin-bottom:1rem;
 }
 
 #about_p {
@@ -520,14 +533,18 @@ body {
 
 
 .about-image_2 {
-width: 700px;
+width: 48%;
+height: 38%;
 border-radius:10px;
+margin-top:3%;
 }
 
 .our-story-info {
   width:600px;
-  font-size:1.2rem;
-  line-height:1.6;
+  font-size:1.4vmax;
+  line-height:1.8;
+  padding: 15px 50px;
+  margin-bottom:0;
 }
 
 
@@ -536,9 +553,10 @@ border-radius:10px;
 .about_h2 {
   font-family: "Playwrite AU TAS", cursive;
   font-weight:1000;
-  font-size:2em;
+  font-size:3vw;
   color:#700d0d;
-  margin-bottom:2rem;
+  margin-bottom:1rem;
+  margin-top:2px;
 }
 
 .about_p_1 {
@@ -547,12 +565,14 @@ border-radius:10px;
 
 .ourTeam-section {
   padding:40px 0;
+
 }
 
 .about-content-container {
   display:flex;
   justify-content:center;
   margin: 50px;
+
 
 }
 .about-content {
@@ -565,18 +585,21 @@ border-radius:10px;
   margin-bottom:20px;
   border-radius:20px;
   box-shadow:5px 5px 20px 2px;
+  
 }
 
 .team-members {
   display:flex;
   flex-direction:column;
   justify-content:center;
+  
 
 }
 
 .team-member {
-  height: 250px;
   display: flex;
+  /* width:20vw;
+  height:20vh; */
 }
 
 .team-member-imageF {
@@ -584,7 +607,10 @@ border-radius:10px;
   margin-right:50px;
   border:2px solid;
   border-radius: 100px;
-  box-shadow: 5px 5px 0px  rgb(62, 58, 58);
+  box-shadow: 3px 3px 0px  rgb(62, 58, 58);
+  width:12vmax;
+  height:12vmax;
+  margin:30px;
 }
 
 .team-member-imageM {
@@ -593,13 +619,20 @@ border-radius:10px;
   border:2px solid;
   border-radius: 120px;
   padding:5px;
-  box-shadow: 5px 5px 0px  rgb(62, 58, 58)
+  box-shadow: 3px 3px 0px  rgb(62, 58, 58);
+  width:12vmax;
+  height:12vmax;
+  margin:25px;
 
 }
 
 .member-info {
   margin-top: 50px;
   margin-left:0px
+}
+
+h3{
+  font-size: 1.5vw;
 }
 
 
