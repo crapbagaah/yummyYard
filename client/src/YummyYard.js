@@ -29,14 +29,7 @@ const YummyYard = () => {
   }, []);
 
   return(
-      //     <Router>
-      //    <Routes>
-          //  <Route exact path="/" element={<Home />} />
-          //  <Route path="/about" element={<About />} />
-          //  <Route path="/start_here" element={<Start_here />} />
-          //  <Route path="/log_signup" element={<LogSignup />} />
-      //    </Routes>
-      //  </Router>
+      
 
     <Router>
       <div>
