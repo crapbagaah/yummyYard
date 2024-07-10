@@ -126,7 +126,7 @@ body {
     justify-content: center;
     align-items: center;
     margin-bottom: 60px;
-    background-color: #ffa4a4;
+    background-color: #ffc7c7;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -331,7 +331,7 @@ body {
   }
   
   .see-more-button:hover {
-    background-color: #add8e6;
+    background-color: #700d0d;
   }
 
 /*----------------FOOTER-----------------*/

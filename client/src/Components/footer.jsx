@@ -1,6 +1,8 @@
 import React from 'react';
+import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -14,12 +16,10 @@ const Footer = () => {
         </div>
       </div>
       <div className="links">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#recipes">Recipes</a>
-        <a href="#contact">Contact</a>
-        <a href="#privacy">Privacy Policy</a>
-        <a href="#terms">Terms of Service</a>
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
+        <Link to="/recipes">Recipes</Link>
+        <Link to="/SignUp">Sign In</Link>
         <div className="copyright">
           &copy; {new Date().getFullYear()} Recipe App. All rights reserved.
         </div>
