@@ -609,7 +609,7 @@ border-radius:10px;
   background-image: url('../Assets/recipe.jpg'); /* Replace with your background image */
   background-size: cover;
   background-position: center;
-  height: 60vh;
+  height: 71vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -618,7 +618,7 @@ border-radius:10px;
   padding: 20px;
 }
 
-.header-content {
+.header-content-startHere {
   background: rgba(0, 0, 0, 0.5);
   padding: 20px;
   border-radius: 10px;
@@ -626,7 +626,7 @@ border-radius:10px;
 
 
 
-/* Login Signup  */
+/*----------------- Login Signup ---------------- */
 
 .auth-content {
   color: white;

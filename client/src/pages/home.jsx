@@ -12,7 +12,7 @@ const Home = () => {
   return (
       <Layout>
         <div className="start_hereHeader">
-          <div className="header-content">
+          <div className="header-content-startHere">
             <h1>Welcome to Yummy Yard</h1>
             
             <pre>

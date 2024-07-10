@@ -1,0 +1,126 @@
+.header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+  padding: 0 15%;
+  margin-bottom: 0;
+}
+
+.header-background {
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.header-content {
+  position: relative;
+  z-index: 1;
+  padding: 150px;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 525px;
+  margin-bottom: 20px;
+}
+
+.search-container input {
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+}
+
+.search-container button {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #cf2525;
+  color: #fff;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+
+.search-container button:hover {
+  background-color: #700d0d;
+}
+
+.recipe-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.recipe-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center the items */
+  gap: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.recipe-list > * {
+  flex: 0 1 30%; /* 3 items per row with space in between */
+  max-width: 350px;
+  min-width: 250px;
+}
+
+.view-button, .add-recipe-button {
+  margin: 10px 30px 40px;
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #cf2525;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.view-button:hover, .add-recipe-button:hover {
+  background-color: #700d0d;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .recipe-list {
+    justify-content: center; /* Ensure items are centered on mobile */
+  }
+
+  .recipe-list > * {
+    flex: 0 1 90%; /* Single column on mobile */
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+  .recipe-list {
+    justify-content: center; /* Center the items */
+  }
+
+  .recipe-list > * {
+    flex: 0 1 45%; /* 2 items per row on tablet */
+  }
+}
