@@ -16,7 +16,6 @@ const About = () => {
     }
 
 
-
     return (
         <Layout>
 
@@ -83,7 +82,7 @@ const About = () => {
                                 <div className="team-member">
                                     <img className="team-member-imageM" src={imgM} name="team-member" alt="team-member" />
                                     <div className="member-info">
-                                        <h3>  OM</h3>
+                                        <h3>OM</h3>
                                     </div>
                                 </div>
                             </div>
