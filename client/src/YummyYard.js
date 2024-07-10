@@ -7,6 +7,7 @@ import RecipeList from './Components/RecipeList';
 import AddRecipe from './pages/add-recipe';
 import Axios from 'axios';
 import recipesData from './data/recipes';
+import AddRecipeForm from './Components/AddRecipeForm';
 
 const YummyYard = () => {
   const [text, setText] = useState("");
@@ -45,7 +46,7 @@ const YummyYard = () => {
           <Route exact path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/recipes" element={<RecipeList recipes={filteredRecipes} />} />
-          <Route path="/add-recipe" element={<AddRecipe onAddRecipe={handleAddRecipe} />} /> {/* Add this route for AddRecipe */}
+          <Route path="/add-recipe" element={<AddRecipeForm onAddRecipe={handleAddRecipe} />} />
         </Routes>
       </Router>
     </div>

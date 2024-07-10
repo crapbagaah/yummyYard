@@ -1,15 +1,35 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Recipe from '../pages/recipes';
-import './RecipeList.css'; // Import CSS for RecipeList component
+import './RecipeList.css';
 import PropTypes from 'prop-types';
 import Layout from '../Components/layout';
 import headerBackground from '../Assets/top-view-table-full-delicious-food-composition.jpg';
 
-const RecipeList = ({ recipes = [] }) => {
+const RecipeList = () => {
+  const [recipes, setRecipes] = useState([]);
   const [showAllRecipes, setShowAllRecipes] = useState(false);
-  const [filteredRecipes, setFilteredRecipes] = useState(recipes);
+  const [filteredRecipes, setFilteredRecipes] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchRecipes = async () => {
+      try {
+        const response = await fetch('/recipes'); // Assumes proxy setup or full URL
+        if (!response.ok) {
+          throw new Error('Failed to fetch recipes');
+        }
+        const data = await response.json();
+        setRecipes(data);
+        setFilteredRecipes(data); // Initialize filtered recipes with all recipes
+      } catch (error) {
+        console.error('Error fetching recipes:', error);
+      }
+    };
+
+    fetchRecipes();
+  }, []);
 
   const recipesToShow = showAllRecipes ? filteredRecipes : filteredRecipes.slice(0, 3);
 
@@ -27,9 +47,13 @@ const RecipeList = ({ recipes = [] }) => {
 
   const handleSearchSubmit = () => {
     const filtered = recipes.filter(recipe =>
-      recipe.title.toLowerCase().includes(searchTerm.toLowerCase())
+      recipe.recipeName.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilteredRecipes(filtered);
+  };
+
+  const handleAddRecipeClick = () => {
+    navigate('/add-recipe');
   };
 
   return (
@@ -60,32 +84,37 @@ const RecipeList = ({ recipes = [] }) => {
           {recipesToShow.map((recipe, index) => (
             <Recipe
               key={index}
-              title={recipe.title}
+              title={recipe.recipeName}
               ingredients={recipe.ingredients}
               instructions={recipe.instructions}
             />
           ))}
         </div>
-        {!showAllRecipes && filteredRecipes.length > 3 && (
+        <div className="buttons-container">
+          {!showAllRecipes && filteredRecipes.length > 3 && (
+            <button
+              onClick={handleViewAllRecipes}
+              className="view-button"
+            >
+              View All Recipes
+            </button>
+          )}
+          {showAllRecipes && (
+            <button
+              onClick={handleHideAllRecipes}
+              className="view-button"
+            >
+              Hide All Recipes
+            </button>
+          )}
           <button
-            onClick={handleViewAllRecipes}
-            className="view-button"
+            onClick={handleAddRecipeClick}
+            className="add-recipe-button"
           >
-            View All Recipes
+            Add New Recipe
           </button>
-        )}
-        {showAllRecipes && (
-          <button
-            onClick={handleHideAllRecipes}
-            className="view-button"
-          >
-            Hide All Recipes
-          </button>
-        )}
+        </div>
       </div>
-      <Link to="/add-recipe" className="add-recipe-button">
-        Add New Recipe
-      </Link>
     </Layout>
   );
 };
@@ -93,9 +122,11 @@ const RecipeList = ({ recipes = [] }) => {
 RecipeList.propTypes = {
   recipes: PropTypes.arrayOf(
     PropTypes.shape({
-      title: PropTypes.string.isRequired,
+      _id: PropTypes.string.isRequired,
+      recipeName: PropTypes.string.isRequired,
+      description: PropTypes.string,
       ingredients: PropTypes.arrayOf(PropTypes.string).isRequired,
-      instructions: PropTypes.string.isRequired,
+      instructions: PropTypes.arrayOf(PropTypes.string).isRequired,
     })
   ).isRequired,
 };

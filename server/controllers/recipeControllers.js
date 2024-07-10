@@ -12,3 +12,12 @@ exports.getAllRecipes = async (req, res) => {
 }
 
 
+const fetchRecipes = async (req, res) => {
+    try {
+      const recipes = await recipeModels.find();
+      res.json(recipes);
+    } catch (err) {
+      res.status(500).json({ message: err.message });
+    }
+  };
+  
