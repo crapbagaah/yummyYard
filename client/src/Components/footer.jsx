@@ -1,25 +1,52 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
+
+  const [feedback, setFeedback] = useState('');
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleInputChange = (e) => {
+    setFeedback(e.target.value);
+  };
+
+  const handleSubmitFeedback = () => {
+    // Simulate feedback submission (you can replace this with actual storage logic)
+    if (feedback) {
+      // Store feedback in local storage
+      localStorage.setItem('feedback', feedback);
+      setSubmitted(true);
+      setFeedback('');
+    }
+  };
+
   return (
     <footer className="footer">
-      <div className="newsletter">
-        <h3>Subscribe to Our Newsletter</h3>
-        <p>Get the latest recipes and updates directly to your inbox.</p>
-        <div className="newsletter-box">
-          <input type="email" placeholder="Enter your email" />
-          <button>Subscribe</button>
-        </div>
+      <div className="feedback">
+        <h3>Feedback and Suggestions</h3>
+        {submitted ? (
+          <p>Thank you for your feedback!</p>
+        ) : (
+          <>
+            <p>We'd love to hear from you. Share your thoughts or suggestions.</p>
+            <div className="feedback-box">
+              <textarea
+                placeholder="Enter your feedback"
+                value={feedback}
+                onChange={handleInputChange}
+              />
+              <button onClick={handleSubmitFeedback}>Submit</button>
+            </div>
+          </>
+        )}
       </div>
       <div className="links">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#recipes">Recipes</a>
-        <a href="#contact">Contact</a>
-        <a href="#privacy">Privacy Policy</a>
-        <a href="#terms">Terms of Service</a>
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
+        <Link to="/recipes">Recipes</Link>
+        <Link to="/SignUp">Sign In</Link>
         <div className="copyright">
           &copy; {new Date().getFullYear()} Recipe App. All rights reserved.
         </div>
