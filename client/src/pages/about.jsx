@@ -15,6 +15,8 @@ const About = () => {
         }
     }
 
+
+
     return (
         <Layout>
 

@@ -1,14 +1,13 @@
 const mongoose = require('mongoose');
 
-
 const recipeSchema = new mongoose.Schema({
     recipeName: {
         type: String,
         required: [true, 'Recipe Name is required']
     },
-    description: {
-        type: String,
-        required: [true, 'Description of the Recipe is required']
+    timeToPrepare: {
+        type: Number,
+        required: [true, 'Time to prepare the recipe is required']
     },
     ingredients: {
         type: [String],
