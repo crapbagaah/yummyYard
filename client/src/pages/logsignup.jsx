@@ -4,7 +4,7 @@ import Login from '../Components/Login';
 import Signup from '../Components/Signup';
 import '../styles/style.css';
 
-const LogSignup = () => {
+const LogSignup = ({ setToken }) => {
 
   const [isLogin, setIsLogin] = useState(true);
 
@@ -21,8 +21,11 @@ const LogSignup = () => {
         <div className="auth-tabs">
           <button onClick={() => setIsLogin(true)} className={isLogin ? "active" : ""}>Login</button>
           <button onClick={() => setIsLogin(false)} className={!isLogin ? "active" : ""}>Signup</button>
+
+          
         </div>
-        {isLogin ? <Login /> : <Signup />}
+        {isLogin ? <Login setToken={setToken} /> : <Signup setToken={setToken}  />}
+       
       </div>
     </div>
 

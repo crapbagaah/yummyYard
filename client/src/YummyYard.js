@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Home from './pages/home';
 import About from './pages/about';
 
@@ -11,6 +11,9 @@ import Axios from 'axios';
 const YummyYard = () => {
 
   const [text, setText] = useState("");
+  
+
+  const [token, setToken] = useState(null);
 
   const getData = async () => {
     try{
@@ -26,17 +29,51 @@ const YummyYard = () => {
   }, []);
 
   return(
+
     
-    <div>
+      
+      // <div> 
+        
+
+      //     <Router>
+      //    <Routes>
+          //  <Route exact path="/" element={<Home />} />
+          //  <Route path="/about" element={<About />} />
+          //  <Route path="/start_here" element={<Start_here />} />
+          //  <Route path="/log_signup" element={<LogSignup />} />
+      //    </Routes>
+      //  </Router>
+
+
+
+
       <Router>
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/start_here" element={<Start_here />} />
-          <Route path="/signup" element={<LogSignup />} />
-        </Routes>
-      </Router>
-    </div>
+      <div>
+        {!token ? (
+          <LogSignup setToken={setToken} />
+        ) : (
+          <Routes>
+           <Route exact path="/" element={<Home />} />
+           <Route path="/about" element={<About />} />
+           <Route path="/start_here" element={<Start_here />} />
+           <Route path="/log_signup" element={<LogSignup />} />
+          </Routes>
+        )}
+      </div>
+    </Router>
+          
+      
+            
+      // </div>
+
+
+
+
+
+
+
+
+    
     );
   }
 
