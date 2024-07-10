@@ -29,12 +29,6 @@ const YummyYard = () => {
   }, []);
 
   return(
-
-    
-      
-      // <div> 
-        
-
       //     <Router>
       //    <Routes>
           //  <Route exact path="/" element={<Home />} />
@@ -43,26 +37,6 @@ const YummyYard = () => {
           //  <Route path="/log_signup" element={<LogSignup />} />
       //    </Routes>
       //  </Router>
-
-
-
-
-    //   <Router>
-    //   <div>
-    //     {!token ? (
-    //       <LogSignup setToken={setToken} />
-    //     ) : (
-    //       <Routes>
-    //        <Route exact path="/" element={<Home />} />
-    //        <Route path="/about" element={<About />} />
-    //        <Route path="/start_here" element={<Start_here />} />
-    //        <Route path="/log_signup" element={<LogSignup />} />
-    //       </Routes>
-    //     )}
-    //   </div>
-    // </Router>
-
-
 
     <Router>
       <div>
@@ -79,15 +53,7 @@ const YummyYard = () => {
             
           </div>
         </Router>
-
-
-
-
-
-
-
-
-    
+            
     );
   }
 
