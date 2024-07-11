@@ -1,11 +1,13 @@
 // src/components/Signup.js
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
 
   const Signup = ({setToken}) => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
   
+    const navigate = useNavigate(); 
 
   const handleSignup = async (e) => {
     e.preventDefault();
@@ -20,8 +22,42 @@ import React, { useState } from 'react';
 
       const data = await response.json();
       if (response.ok) {
+
+        //change 
+        localStorage.setItem('token', data.token); 
+        //till here
         setToken(data.token); // Set token on successful signup
+
+
+
+
+
+
+
+
+
+
+        // Clear token from local storage after 15 minutes
+        setTimeout(() => {
+          localStorage.removeItem('token');
+          alert('Session expired. Please log in again to continue.');
+          navigate('/log_signup'); // Redirect to login or signup page using navigate function
+        }, 900000); // 15 minutes in milliseconds
+
+
+
+
+
+
+
+
+
+
+
+
         alert('Signup Successful');
+        navigate('/'); //go to homepage just after login
+        
       } else {
         alert(data.message); // Show error message
       }
