@@ -46,7 +46,7 @@ const Footer = () => {
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
         <Link to="/recipes">Recipes</Link>
-        <Link to="/SignUp">Sign In</Link>
+        <Link to="/log_signup">Login/Sign Up</Link>
         <div className="copyright">
           &copy; {new Date().getFullYear()} Recipe App. All rights reserved.
         </div>
