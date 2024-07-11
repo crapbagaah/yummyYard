@@ -37,12 +37,12 @@ import { useNavigate } from 'react-router-dom'; // Import useNavigate for naviga
 
 
 
-        // Clear token from local storage after 15 minutes
-        setTimeout(() => {
-          localStorage.removeItem('token');
-          alert('Session expired. Please log in again to continue.');
-          navigate('/log_signup'); // Redirect to login or signup page using navigate function
-        }, 900000); // 15 minutes in milliseconds
+        // // Clear token from local storage after 15 minutes
+        // setTimeout(() => {
+        //   localStorage.removeItem('token');
+        //   alert('Session expired. Please log in again to continue.');
+        //   navigate('/log_signup'); // Redirect to login or signup page using navigate function
+        // }, 900000); // 15 minutes in milliseconds
 
 
 
@@ -57,7 +57,7 @@ import { useNavigate } from 'react-router-dom'; // Import useNavigate for naviga
 
         alert('Signup Successful');
         navigate('/'); //go to homepage just after login
-        
+
       } else {
         alert(data.message); // Show error message
       }
