@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import '../styles/style.css'
 import Logo from '../Assets/Logo1.png'
 
+
 const Navbar = () => {
   return (
     <header className="header">
@@ -14,8 +15,7 @@ const Navbar = () => {
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
           <Link to="/recipes">Recipes</Link>
-          <Link to="/start_here">Start Here</Link>
-          <Link to="/log_signup">SignUp</Link>
+          <Link to="/log_signup">Signup</Link>
         </div>
       </nav>
     </header>
