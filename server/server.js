@@ -13,7 +13,7 @@ app.use(express.json());
 
 connectToMongoDB();
 
-//app.use(cors());
+app.use(cors());
 
 // app.use(cors({
 
