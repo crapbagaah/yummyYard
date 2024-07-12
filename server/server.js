@@ -13,7 +13,7 @@ app.use(express.json());
 
 connectToMongoDB();
 
-app.use(cors());
+//app.use(cors());
 
 // app.use(cors({
 
@@ -38,4 +38,4 @@ app.listen(PORT, () => {
 
 
 
-// module.exports = app;
+//  module.exports = app;
