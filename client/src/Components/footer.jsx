@@ -68,7 +68,10 @@ const Footer = () => {
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
         <Link to="/recipes">Recipes</Link>
-        <Link to="/log_signup">Login/Sign Up</Link>
+
+        {!isLoggedIn && <Link to="/log_signup">Login</Link>}
+
+        {/* <Link to="/log_signup">Login/Sign Up</Link> */}
 
         {/* <Logout/> */}
 
