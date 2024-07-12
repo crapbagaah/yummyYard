@@ -5,63 +5,76 @@ import './RecipeList.css';
 import PropTypes from 'prop-types';
 import Layout from '../Components/layout';
 import headerBackground from '../Assets/top-view-table-full-delicious-food-composition.jpg';
+import axios from 'axios';
 
 const RecipeList = () => {
-  const [recipes, setRecipes] = useState([]);
-  const [showAllRecipes, setShowAllRecipes] = useState(false);
-  const [filteredRecipes, setFilteredRecipes] = useState([]);
+  const [newRecipe, setNewRecipe] = useState('');
+  const [recipeData, setRecipeData] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
+  const [showAllRecipes, setShowAllRecipes] = useState(false);
+
 
   useEffect(() => {
     const fetchRecipes = async () => {
-      try {
-        const response = await fetch('/recipes'); // Assumes proxy setup or full URL
-        if (!response.ok) {
-          throw new Error('Failed to fetch recipes');
-        }
-        const data = await response.json();
-        setRecipes(data);
-        setFilteredRecipes(data); // Initialize filtered recipes with all recipes
-      } catch (error) {
-        console.error('Error fetching recipes:', error);
-      }
+      const apiData = await getRecipe();
+      setRecipeData(apiData);
+      setLoading(false);
     };
 
     fetchRecipes();
   }, []);
 
-  const recipesToShow = showAllRecipes ? filteredRecipes : filteredRecipes.slice(0, 3);
+  const getRecipe = async () => {
+    const options = {
+      method: "GET",
+      url: "http://localhost:5000/yummyYard/recipes",
+      headers: {
+          accept: "application/json"
+      }
+    }
+    try {
+      const response = await axios.request(options);
+      return response.data;
+    } catch (err) {
+      console.log(err);
+      return [];
 
-  const handleViewAllRecipes = () => {
-    setShowAllRecipes(true);
-  };
-
-  const handleHideAllRecipes = () => {
-    setShowAllRecipes(false);
-  };
+    }
+  }
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
   };
 
   const handleSearchSubmit = () => {
-    const filtered = recipes.filter(recipe =>
-      recipe.recipeName.toLowerCase().includes(searchTerm.toLowerCase())
+    const filtered = recipeData.filter(recipe =>
+      recipe.title && recipe.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
-    setFilteredRecipes(filtered);
+    setRecipeData(filtered);
   };
 
   const handleAddRecipeClick = () => {
-    navigate('/add-recipe');
+    navigate('/recipes/add-recipe');
   };
+  const handleViewAllRecipesClick = () => {
+    const fetchRecipes = async () => {
+      const apiData = await getRecipe();
+      setRecipeData(apiData);
+    };
+
+    fetchRecipes();
+  };
+  
+  
 
   return (
     <Layout>
       <header className="header">
         <div
           className="header-background"
-          style={{ backgroundImage: `url(${headerBackground})` }}
+          style={{ backgroundImage: `url(${headerBackground})`}}
         >
           <div className="overlay"></div>
           <div className='header-content'>
@@ -81,37 +94,28 @@ const RecipeList = () => {
       </div>
       <div className="recipe-list-container">
         <div className="recipe-list">
-          {recipesToShow.map((recipe, index) => (
+          {recipeData.map((recipe, index) => (
             <Recipe
-              key={index}
-              title={recipe.recipeName}
+              key={recipe._id || index}
+              title={recipe.title}
+              time={recipe.time}
               ingredients={recipe.ingredients}
               instructions={recipe.instructions}
             />
           ))}
         </div>
         <div className="buttons-container">
-          {!showAllRecipes && filteredRecipes.length > 3 && (
-            <button
-              onClick={handleViewAllRecipes}
-              className="view-button"
-            >
-              View All Recipes
-            </button>
-          )}
-          {showAllRecipes && (
-            <button
-              onClick={handleHideAllRecipes}
-              className="view-button"
-            >
-              Hide All Recipes
-            </button>
-          )}
           <button
             onClick={handleAddRecipeClick}
             className="add-recipe-button"
           >
-            Add New Recipe
+          Add New Recipe
+          </button>
+          <button
+            onClick={handleViewAllRecipesClick}
+            className="view-button"
+          >
+          View All Recipes
           </button>
         </div>
       </div>
@@ -123,12 +127,13 @@ RecipeList.propTypes = {
   recipes: PropTypes.arrayOf(
     PropTypes.shape({
       _id: PropTypes.string.isRequired,
-      recipeName: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
       description: PropTypes.string,
       ingredients: PropTypes.arrayOf(PropTypes.string).isRequired,
       instructions: PropTypes.arrayOf(PropTypes.string).isRequired,
+      _id: PropTypes.string,
     })
   ).isRequired,
 };
 
-export default RecipeList;
+export default RecipeList;
