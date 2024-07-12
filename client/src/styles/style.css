@@ -65,6 +65,7 @@ body {
     font-family: "Playwrite NL", cursive;
     font-size: 2.5em;
     margin-bottom: 10px;
+    margin-top:20px;
     color: #cf2525;
   }
   
@@ -336,100 +337,96 @@ body {
 
 /*----------------FOOTER-----------------*/
 
-.footer {
-  background-color: #f0f0f0;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
+/* Footer.css */
 
-.newsletter {
-  flex: 1 1 300px;
-  margin-bottom: 20px;
+.footer {
+  background-color: #f8f9fa;
+  padding: 20px;
+  text-align: center;
 }
 
 .feedback {
-  flex: 1 1 300px;
   margin-bottom: 20px;
 }
 
-.feedback h3, .newsletter h3 {
-  font-size: 1.2rem;
+.feedback h3 {
   margin-bottom: 10px;
 }
 
-.feedback p, .newsletter p {
-  font-size: 0.9rem;
-  margin-bottom: 15px;
-}
-
-.feedback-box, .newsletter-box {
+.feedback-box {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
-.feedback-box textarea, .newsletter-box input {
-  padding: 10px;
+.feedback-box textarea {
+  width: 100%;
+  max-width: 400px;
+  height: 100px;
   margin-bottom: 10px;
-  border: 1px solid #ccc;
+  padding: 10px;
   border-radius: 5px;
-  font-size: 0.9rem;
-  resize: vertical; /* Allow vertical resizing of textarea */
+  border: 1px solid #ccc;
+  resize: none;
 }
 
-.feedback-box button, .newsletter-box button {
+.feedback-box button {
   padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
   border: none;
   border-radius: 5px;
+  background-color: #cf2525;
+  color: white;
   cursor: pointer;
-  font-size: 0.9rem;
 }
 
-.feedback-box button:hover, .newsletter-box button:hover {
-  background-color: #0056b3;
+.feedback-box button:hover {
+  background-color: #700d0d;
 }
 
 .links {
-  flex: 1 1 300px;
   margin-bottom: 20px;
 }
 
 .links a {
-  display: block;
-  color: #333;
+  margin: 0 10px;
+  color: #cf2525;
   text-decoration: none;
-  margin-bottom: 5px;
-  font-size: 0.9rem;
 }
 
 .links a:hover {
   text-decoration: underline;
 }
 
-.social-media {
-  flex: 1 1 auto;
-  display: flex;
-  justify-content: flex-end;
-}
-
 .social-media a {
-  margin-left: 10px;
-  color: #333;
-  font-size: 1.2rem;
+  margin: 0 10px;
+  color: #555;
+  font-size: 24px;
 }
 
 .social-media a:hover {
-  color: #007bff;
+  color: #000;
 }
+
+.copyright {
+  margin-top: 20px;
+  color: #666;
+}
+
 
 
 /*-----------------About------------------*/
 .about {
   width:100vw;
+  
+}
+.about_bimage{
+    width:100%;
+    background-image: url("../Assets/aboutPage_background.jpg");
+    background-size:contain;
+    background-position:center;
+    /* height:100vh; */
+    position:relative;
+    /* background-repeat:repeat */
 }
 
 .about-header-container {
@@ -464,14 +461,15 @@ body {
 .button-style {
   border:none;
   background-color: #cf2525;
-  border:none;
+  border-bottom:3px solid black;
+  border-left:3px solid black;
   color:white;
   font-size:1.4vmax;
   font-weight:5px;
   background-color:#eb5751;
   border-radius: 5px;
   padding: 10px 15px;
-  box-shadow: 2px 2px 2px;
+  box-shadow: 2px 1px 4px 3px rgba(0,0,0);
   width:25%;
   height:95%;
   cursor:pointer;
@@ -596,8 +594,6 @@ margin-top:3%;
 
 .team-member {
   display: flex;
-  /* width:20vw;
-  height:20vh; */
 }
 
 .team-member-imageF {
@@ -625,8 +621,8 @@ margin-top:3%;
 }
 
 .member-info {
-  margin-top: 50px;
-  margin-left:0px
+  margin-top: 80px;
+  margin-left:10px
 }
 
 h3{
@@ -857,4 +853,6 @@ h3{
 .auth-tabs button:hover {
   color: #5cb85c;
 }
+
+
 

@@ -61,7 +61,7 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="search-bar">
+          {/* <div className="search-bar">
             <FontAwesomeIcon icon={faAppleAlt} className="icon" />
             <FontAwesomeIcon icon={faCarrot} className="icon" />
             <input type="text" placeholder="Search for recipes..." />
@@ -70,7 +70,7 @@ const Home = () => {
             </button>
             <FontAwesomeIcon icon={faLemon} className="icon" />
             <FontAwesomeIcon icon={faPizzaSlice} className="icon" />
-          </div>
+          </div> */}
 
           <h2 className="trending-title">Trending</h2>
           <Carousel className="recipe-cards">
@@ -127,7 +127,7 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-              <button className="see-more-button">See More</button>
+              {/* <button className="see-more-button">See More</button> */}
             </div>
             
             <div className="recipe-collections">

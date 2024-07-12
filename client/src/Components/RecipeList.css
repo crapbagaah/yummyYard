@@ -67,6 +67,7 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+  gap:100px;
 }
 
 .recipe-list {
@@ -76,12 +77,20 @@
   gap: 20px;
   margin-bottom: 20px;
   width: 100%;
+  /* font-family:"Playwrite AU TAS", cursive; */
+
 }
 
 .recipe-list > * {
   flex: 0 1 30%; /* 3 items per row with space in between */
   max-width: 350px;
   min-width: 250px;
+  margin:30px;
+  border-radius:10px;
+  border: 2px solid rgb(224, 164, 164);
+  box-shadow: 5px 5px 2px 2px rgb(215, 114, 114);
+  background-color: rgb(238, 233, 233);
+  padding:20px;
 }
 
 .view-button, .add-recipe-button {

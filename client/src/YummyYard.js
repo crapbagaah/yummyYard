@@ -65,7 +65,7 @@ const [token, setToken] = useState(null);
           <Route path="/about" element={<About />} />
           <Route path="/recipes" element={<RecipeList recipes={filteredRecipes} />} />
 
-          <Route path="/add-recipe" element={<ProtectedAddRecipeForm onAddRecipe={handleAddRecipe} />} />
+          <Route path="/recipes/add-recipe" element={<ProtectedAddRecipeForm onAddRecipe={handleAddRecipe} />} />
 
           {/* <Route path="/add-recipe" element={<AddRecipeForm onAddRecipe={handleAddRecipe} />} /> */}
           
