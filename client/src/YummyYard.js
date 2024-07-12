@@ -52,7 +52,7 @@ const YummyYard = () => {
           <Route exact path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/recipes" element={<RecipeList recipes={filteredRecipes} />} />
-          <Route path="/add-recipe" element={<AddRecipeForm onAddRecipe={handleAddRecipe} />} />
+          <Route path="/recipes/add-recipe" element={<AddRecipeForm onAddRecipe={handleAddRecipe} />} />
           <Route path="/start_here" element={<Start_here />} />
           <Route path="/signup" element={<LogSignup />} />
         </Routes>

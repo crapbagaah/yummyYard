@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
 const recipeSchema = new mongoose.Schema({
-    recipeName: {
+    title: {
         type: String,
         required: [true, 'Recipe Name is required']
     },
-    timeToPrepare: {
+    time: {
         type: Number,
         required: [true, 'Time to prepare the recipe is required']
     },

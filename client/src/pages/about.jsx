@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import Layout from '../Components/layout';
+import "../styles/style.css";
 const About = () => {
 
     const imgF = "https://cdn1.iconfinder.com/data/icons/avatars-1-5/136/84-512.png";
@@ -20,6 +21,7 @@ const About = () => {
         <Layout>
 
             <div className="about">
+                <div className="about_bimage">
                 <div className="about-header-container">
                     <div className="about-header">
                         <section ref={aboutUsRef} className="aboutUs-section">
@@ -89,6 +91,7 @@ const About = () => {
                         </div>
                     </div>
                 </section>
+                </div>
             </div>
         </Layout >
     );

@@ -5,31 +5,65 @@ import './RecipeList.css';
 import PropTypes from 'prop-types';
 import Layout from '../Components/layout';
 import headerBackground from '../Assets/top-view-table-full-delicious-food-composition.jpg';
+import axios from 'axios';
 
 const RecipeList = () => {
-  const [recipes, setRecipes] = useState([]);
+  const [newRecipe, setNewRecipe] = useState('');
+  const [recipeData, setRecipeData] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [showAllRecipes, setShowAllRecipes] = useState(false);
   const [filteredRecipes, setFilteredRecipes] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
 
+
   useEffect(() => {
     const fetchRecipes = async () => {
-      try {
-        const response = await fetch('/recipes'); // Assumes proxy setup or full URL
-        if (!response.ok) {
-          throw new Error('Failed to fetch recipes');
-        }
-        const data = await response.json();
-        setRecipes(data);
-        setFilteredRecipes(data); // Initialize filtered recipes with all recipes
-      } catch (error) {
-        console.error('Error fetching recipes:', error);
-      }
+      const apiData = await getRecipe();
+      setRecipeData(apiData);
+      setLoading(false);
     };
 
     fetchRecipes();
   }, []);
+
+  const getRecipe = async () => {
+    const options = {
+      method: "GET",
+      url: "http://localhost:5000/yummyYard/recipes",
+      headers: {
+          accept: "application/json"
+      }
+    }
+    try {
+      const response = await axios.request(options);
+      return response.data;
+    } catch (err) {
+      console.log(err);
+      return [];
+
+    }
+  }
+
+  const addRecipe = async () => {
+    const options = {
+      method: "POST",
+      url: "http://localhost:5000/yummyYard/recipes",
+      headers: {
+        accept: "application/json"
+      },
+      data: {
+        title: newRecipe
+      }
+    }
+    try {
+      const response = await axios.request(options);
+      console.log(response.data);
+      setNewRecipe(prevData => [response.data, ...prevData]);
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   const recipesToShow = showAllRecipes ? filteredRecipes : filteredRecipes.slice(0, 3);
 
@@ -46,14 +80,14 @@ const RecipeList = () => {
   };
 
   const handleSearchSubmit = () => {
-    const filtered = recipes.filter(recipe =>
-      recipe.recipeName.toLowerCase().includes(searchTerm.toLowerCase())
+    const filtered = recipeData.filter(recipe =>
+      recipe.title && recipe.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilteredRecipes(filtered);
   };
 
   const handleAddRecipeClick = () => {
-    navigate('/add-recipe');
+    navigate('/recipes/add-recipe');
   };
 
   return (
@@ -83,8 +117,9 @@ const RecipeList = () => {
         <div className="recipe-list">
           {recipesToShow.map((recipe, index) => (
             <Recipe
-              key={index}
-              title={recipe.recipeName}
+              key={recipe._id || index}
+              title={recipe.title}
+              time={recipe.time}
               ingredients={recipe.ingredients}
               instructions={recipe.instructions}
             />
@@ -111,7 +146,7 @@ const RecipeList = () => {
             onClick={handleAddRecipeClick}
             className="add-recipe-button"
           >
-            Add New Recipe
+          Add New Recipe
           </button>
         </div>
       </div>
@@ -123,12 +158,14 @@ RecipeList.propTypes = {
   recipes: PropTypes.arrayOf(
     PropTypes.shape({
       _id: PropTypes.string.isRequired,
-      recipeName: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
       description: PropTypes.string,
       ingredients: PropTypes.arrayOf(PropTypes.string).isRequired,
       instructions: PropTypes.arrayOf(PropTypes.string).isRequired,
+      _id: PropTypes.string,
     })
   ).isRequired,
 };
 
 export default RecipeList;
+
