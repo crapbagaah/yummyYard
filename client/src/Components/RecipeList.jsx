@@ -11,10 +11,9 @@ const RecipeList = () => {
   const [newRecipe, setNewRecipe] = useState('');
   const [recipeData, setRecipeData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [showAllRecipes, setShowAllRecipes] = useState(false);
-  const [filteredRecipes, setFilteredRecipes] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
+  const [showAllRecipes, setShowAllRecipes] = useState(false);
 
 
   useEffect(() => {
@@ -45,36 +44,6 @@ const RecipeList = () => {
     }
   }
 
-  const addRecipe = async () => {
-    const options = {
-      method: "POST",
-      url: "http://localhost:5000/yummyYard/recipes",
-      headers: {
-        accept: "application/json"
-      },
-      data: {
-        title: newRecipe
-      }
-    }
-    try {
-      const response = await axios.request(options);
-      console.log(response.data);
-      setNewRecipe(prevData => [response.data, ...prevData]);
-    } catch (err) {
-      console.log(err);
-    }
-  }
-
-  const recipesToShow = showAllRecipes ? filteredRecipes : filteredRecipes.slice(0, 3);
-
-  const handleViewAllRecipes = () => {
-    setShowAllRecipes(true);
-  };
-
-  const handleHideAllRecipes = () => {
-    setShowAllRecipes(false);
-  };
-
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
   };
@@ -83,12 +52,22 @@ const RecipeList = () => {
     const filtered = recipeData.filter(recipe =>
       recipe.title && recipe.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
-    setFilteredRecipes(filtered);
+    setRecipeData(filtered);
   };
 
   const handleAddRecipeClick = () => {
     navigate('/recipes/add-recipe');
   };
+  const handleViewAllRecipesClick = () => {
+    const fetchRecipes = async () => {
+      const apiData = await getRecipe();
+      setRecipeData(apiData);
+    };
+
+    fetchRecipes();
+  };
+  
+  
 
   return (
     <Layout>
@@ -115,7 +94,7 @@ const RecipeList = () => {
       </div>
       <div className="recipe-list-container">
         <div className="recipe-list">
-          {recipesToShow.map((recipe, index) => (
+          {recipeData.map((recipe, index) => (
             <Recipe
               key={recipe._id || index}
               title={recipe.title}
@@ -126,27 +105,17 @@ const RecipeList = () => {
           ))}
         </div>
         <div className="buttons-container">
-          {!showAllRecipes && filteredRecipes.length > 3 && (
-            <button
-              onClick={handleViewAllRecipes}
-              className="view-button"
-            >
-              View All Recipes
-            </button>
-          )}
-          {showAllRecipes && (
-            <button
-              onClick={handleHideAllRecipes}
-              className="view-button"
-            >
-              Hide All Recipes
-            </button>
-          )}
           <button
             onClick={handleAddRecipeClick}
             className="add-recipe-button"
           >
           Add New Recipe
+          </button>
+          <button
+            onClick={handleViewAllRecipesClick}
+            className="view-button"
+          >
+          View All Recipes
           </button>
         </div>
       </div>
@@ -168,4 +137,3 @@ RecipeList.propTypes = {
 };
 
 export default RecipeList;
-

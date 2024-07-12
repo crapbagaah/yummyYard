@@ -17,25 +17,6 @@ const AddRecipeForm = ({ onAddRecipe }) => {
   const handleAddRecipe = (e) => {
     e.preventDefault(); // Prevent the default form submission behavior
 
-    // Create a new recipe object
-    // const newDishNameObj = {
-    //   title: newDishName,
-    //   time: prepTime,
-    //   ingredients: ingredients.split(',').map(item => item.trim()), // Split by comma and trim whitespace
-    //   instructions: instructions.split(',').map(item => item.trim())
-    // };
-
- 
-
-    // Pass the new recipe object to the parent component and update the state
-    // onAddRecipe(newDishNameObj);
-
-    // Clear the form fields after adding the recipe
-    // setNewDishName('');
-    // setPrepTime('');
-    // setIngredients('');
-    // setInstructions('');
-
     // Redirect to /recipes after a brief delay to ensure state updates
     setTimeout(() => {
       navigate('/recipes');
