@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { Link } from 'react-router-dom';
-
+import Logout from './Logout';
 const Footer = () => {
 
   const [feedback, setFeedback] = useState('');
@@ -21,6 +21,20 @@ const Footer = () => {
       setFeedback('');
     }
   };
+
+
+  //CHANGE MADE
+  const [isLoggedIn, setIsLoggedIn] = useState(false); 
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+        setIsLoggedIn(true);
+    } else {
+        setIsLoggedIn(false);
+    }
+}, []);
+  //TILL HERE
+
 
   return (
     <footer className="footer">
@@ -42,11 +56,27 @@ const Footer = () => {
           </>
         )}
       </div>
+
+
+
+
+
+
+
+      
       <div className="links">
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
         <Link to="/recipes">Recipes</Link>
-        <Link to="/SignUp">Sign In</Link>
+        <Link to="/log_signup">Login/Sign Up</Link>
+
+        {/* <Logout/> */}
+
+        {isLoggedIn && <Logout />}
+        {/* {!isLoggedIn && <Link to="/log_signup">Login/Sign Up</Link>} */}
+
+
+
         <div className="copyright">
           &copy; {new Date().getFullYear()} Recipe App. All rights reserved.
         </div>
