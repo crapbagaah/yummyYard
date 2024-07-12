@@ -13,6 +13,8 @@ const RecipeList = () => {
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
+  const [showAllRecipes, setShowAllRecipes] = useState(false);
+
 
   useEffect(() => {
     const fetchRecipes = async () => {
@@ -56,13 +58,23 @@ const RecipeList = () => {
   const handleAddRecipeClick = () => {
     navigate('/recipes/add-recipe');
   };
+  const handleViewAllRecipesClick = () => {
+    const fetchRecipes = async () => {
+      const apiData = await getRecipe();
+      setRecipeData(apiData);
+    };
+
+    fetchRecipes();
+  };
+  
+  
 
   return (
     <Layout>
       <header className="header">
         <div
           className="header-background"
-          style={{ backgroundImage: `url(${headerBackground})` }}
+          style={{ backgroundImage: `url(${headerBackground})`}}
         >
           <div className="overlay"></div>
           <div className='header-content'>
@@ -98,6 +110,12 @@ const RecipeList = () => {
             className="add-recipe-button"
           >
           Add New Recipe
+          </button>
+          <button
+            onClick={handleViewAllRecipesClick}
+            className="view-button"
+          >
+          View All Recipes
           </button>
         </div>
       </div>
