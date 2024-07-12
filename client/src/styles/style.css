@@ -389,7 +389,8 @@ body {
 
 .links a {
   margin: 0 10px;
-  color: #cf2525;
+  /*#cf2525*/
+  color: #e21b1b;
   text-decoration: none;
 }
 
@@ -421,7 +422,7 @@ body {
   resize: vertical; /* Allow vertical resizing of textarea */
 }
 
-.feedback-box button, .newsletter-box button {
+/* .feedback-box button, .newsletter-box button {
   padding: 10px 20px;
   background-color: #007bff;
   color: white;
@@ -429,28 +430,12 @@ body {
   border-radius: 5px;
   cursor: pointer;
   font-size: 0.9rem;
-}
+} */
 
-.feedback-box button:hover, .newsletter-box button:hover {
+/* .feedback-box button:hover, .newsletter-box button:hover {
   background-color: #0056b3;
-}
+} */
 
-.links {
-  flex: 1 1 300px;
-  margin-bottom: 20px;
-}
-
-.links a {
-  display: block;
-  color: #333;
-  text-decoration: none;
-  margin-bottom: 5px;
-  font-size: 0.9rem;
-}
-
-.links a:hover {
-  text-decoration: underline;
-}
 
 .social-media {
   flex: 1 1 auto;
