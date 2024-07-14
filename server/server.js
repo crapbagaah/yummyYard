@@ -1,8 +1,8 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const cors = require('cors');
 const connectToMongoDB = require("./config/recipeDB");
 const recipeRoutes = require('./routes/recipeRoutes');
+require('dotenv').config();
 
 
 const authRoutes = require('./routes/authRoutes');
@@ -38,6 +38,8 @@ app.use(cors());
 // db.once('open', () => {
 //     console.log('Connected to MongoDB');
 // });
+
+  
 
 app.use('/yummyYard/recipes', recipeRoutes);
 
