@@ -8,18 +8,17 @@ import headerBackground from '../Assets/top-view-table-full-delicious-food-compo
 import axios from 'axios';
 
 const RecipeList = () => {
-  const [newRecipe, setNewRecipe] = useState('');
   const [recipeData, setRecipeData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
-  const [showAllRecipes, setShowAllRecipes] = useState(false);
-
 
   useEffect(() => {
     const fetchRecipes = async () => {
       const apiData = await getRecipe();
       setRecipeData(apiData);
+      setFilteredData(apiData); // Initialize filteredData with all recipes
       setLoading(false);
     };
 
@@ -29,9 +28,9 @@ const RecipeList = () => {
   const getRecipe = async () => {
     const options = {
       method: "GET",
-      url: "http://localhost:5000/yummyYard/recipes",
+      url: `${process.env.REACT_APP_SERVER_URL}/yummyYard/recipes`,
       headers: {
-          accept: "application/json"
+        accept: "application/json"
       }
     }
     try {
@@ -40,9 +39,8 @@ const RecipeList = () => {
     } catch (err) {
       console.log(err);
       return [];
-
     }
-  }
+  };
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
@@ -52,29 +50,35 @@ const RecipeList = () => {
     const filtered = recipeData.filter(recipe =>
       recipe.title && recipe.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
-    setRecipeData(filtered);
+    setFilteredData(filtered);
+    setSearchTerm('');
   };
 
   const handleAddRecipeClick = () => {
     navigate('/recipes/add-recipe');
   };
-  const handleViewAllRecipesClick = () => {
-    const fetchRecipes = async () => {
-      const apiData = await getRecipe();
-      setRecipeData(apiData);
-    };
 
-    fetchRecipes();
+  const handleViewAllRecipesClick = async () => {
+    // Fetch all recipes and reset filteredData to display all recipes
+    const apiData = await getRecipe();
+    setFilteredData(apiData);
+    setSearchTerm(''); // Reset search term
   };
-  
-  
+
+  // Function to handle when a new recipe is added
+  const handleRecipeAdded = (newRecipe) => {
+    // Update the recipeData state
+    setRecipeData((prevRecipes) => [newRecipe, ...prevRecipes]);
+    // Update the filteredData state to reflect the new recipe
+    setFilteredData((prevRecipes) => [newRecipe, ...prevRecipes]);
+  };
 
   return (
     <Layout>
       <header className="header">
         <div
           className="header-background"
-          style={{ backgroundImage: `url(${headerBackground})`}}
+          style={{ backgroundImage: `url(${headerBackground})` }}
         >
           <div className="overlay"></div>
           <div className='header-content'>
@@ -94,7 +98,7 @@ const RecipeList = () => {
       </div>
       <div className="recipe-list-container">
         <div className="recipe-list">
-          {recipeData.map((recipe, index) => (
+          {filteredData.map((recipe, index) => (
             <Recipe
               key={recipe._id || index}
               title={recipe.title}
@@ -109,13 +113,13 @@ const RecipeList = () => {
             onClick={handleAddRecipeClick}
             className="add-recipe-button"
           >
-          Add New Recipe
+            Add New Recipe
           </button>
           <button
             onClick={handleViewAllRecipesClick}
             className="view-button"
           >
-          View All Recipes
+            View All Recipes
           </button>
         </div>
       </div>
@@ -136,4 +140,4 @@ RecipeList.propTypes = {
   ).isRequired,
 };
 
-export default RecipeList;
+export default RecipeList;

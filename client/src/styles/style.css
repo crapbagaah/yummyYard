@@ -459,15 +459,17 @@ body {
   width:100vw;
   
 }
-.about_bimage{
-    width:100%;
-    background-image: url("../Assets/aboutPage_background.jpg");
-    background-size:contain;
-    background-position:center;
-    /* height:100vh; */
-    position:relative;
-    /* background-repeat:repeat */
+
+.about_bimage {
+  width: 100%;
+  min-height:100vh;
+  background-image: url("../Assets/aboutPage_background.jpg");
+  background-size: contain; /* Prevents zooming in */
+  background-repeat: repeat; /* Allows the image to repeat */
+  background-position: center; /* Centers the image */
+  position: relative;
 }
+
 
 .about-header-container {
   display:flex;
@@ -522,11 +524,12 @@ body {
 
 
 .about-image-container_1 {
-  background-color: rgb(242 242 242);
+  background-color:#f4e9e9;
   display:flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
   margin-top:20px;
+  border-radius:10px;
 }
 
 .about-image_1 {
@@ -561,10 +564,12 @@ body {
 
 
 .about-image-container_2 {
-  background-color: rgb(242 242 242);
+  background-color: #f4e9e9;
   display:flex;
   justify-content:space-evenly;
   flex-wrap:wrap;
+  border-radius:10px;
+
 }
 
 
@@ -612,7 +617,7 @@ margin-top:3%;
 
 }
 .about-content {
-  background-color: rgb(242,  242, 242);
+  background-color: #f4e9e9;
   width:70vw;
   position: static;
   display: flex;

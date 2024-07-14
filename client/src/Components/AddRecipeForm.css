@@ -1,50 +1,49 @@
 /* AddRecipeForm.css */
 
 .add-recipe-form {
-    display: flex;
-    flex-direction: column;
-    width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.5); /* Slightly transparent background */
-    backdrop-filter: blur(50%); /* Add a blur effect for a frosted glass look */
-    color: #fff;
-  }
-  
-  .add-recipe-form-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh; /* Full screen height */
-    background: url('../Assets/add-recipe.jpg') no-repeat center center;
-    background-size: cover;
-  }
-  
-  .add-recipe-form label {
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-  
-  .add-recipe-form input,
-  .add-recipe-form textarea {
-    margin-bottom: 15px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 100%;
-  }
-  
-  .add-recipe-form button {
-    padding: 10px 15px;
-    background-color: #cf2525;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .add-recipe-form button:hover {
-    background-color: #700d0d;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.5); /* Slightly transparent background */
+  backdrop-filter: blur(50%); /* Add a blur effect for a frosted glass look */
+  color: #fff;
+}
+
+.add-recipe-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Full screen height */
+  background: url('../Assets/add-recipe.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+.add-recipe-form label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.add-recipe-form input,
+.add-recipe-form textarea {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.add-recipe-form button {
+  padding: 10px 15px;
+  background-color: #cf2525;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-recipe-form button:hover {
+  background-color: #700d0d;
+}

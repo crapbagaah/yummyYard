@@ -12,7 +12,7 @@ import { useNavigate } from 'react-router-dom'; // Import useNavigate for naviga
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/yummyYard/recipes/log_signup/auth/signup', {
+      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/yummyYard/recipes/log_signup/auth/signup`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
