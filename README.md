@@ -2,7 +2,7 @@ YummyYard is a user-friendly recipe-sharing platform built on the MERN stack. It
 
 Demo: https://yummy-yard-client.vercel.app/
 
-Documentation: [https://docs.google.com/document/d/1wRYTa6vpuH1uDviulidL9l0eUSpdqJti/edit?usp=sharing&ouid=113513609649727199036&rtpof=true&sd=true ](https://shorturl.at/7wOdi)
+Documentation: (https://docs.google.com/document/d/1wRYTa6vpuH1uDviulidL9l0eUSpdqJti/edit?usp=sharing&ouid=113513609649727199036&rtpof=true&sd=true )[https://shorturl.at/7wOdi]
 
 Contributors : Saheli Sahoo, Srisha Poddar, Om Prakash Bhagat, Vedant Sharma
 
